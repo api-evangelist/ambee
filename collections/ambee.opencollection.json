@@ -1,0 +1,346 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ambee API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{apiKey}}",
+      "in": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Air Quality",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest air quality by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/latest/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Returns the most recent air quality reading (AQI and pollutant concentrations) for a coordinate."
+        },
+        {
+          "info": {
+            "name": "Latest air quality by city",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/latest/by-city",
+            "params": [
+              { "name": "city", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Latest air quality for a named city."
+        },
+        {
+          "info": {
+            "name": "Latest air quality by postal code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/latest/by-postal-code",
+            "params": [
+              { "name": "postalCode", "value": "", "type": "query" },
+              { "name": "countryCode", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Latest air quality for a postal code."
+        },
+        {
+          "info": {
+            "name": "Historical air quality by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/history/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" },
+              { "name": "from", "value": "", "type": "query" },
+              { "name": "to", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Historical air quality for a coordinate over a time range."
+        },
+        {
+          "info": {
+            "name": "Air quality forecast by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/forecast/aq/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Air quality forecast for a coordinate."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pollen",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest pollen by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/latest/pollen/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Latest pollen counts and risk for a coordinate."
+        },
+        {
+          "info": {
+            "name": "Historical pollen by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/history/pollen/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" },
+              { "name": "from", "value": "", "type": "query" },
+              { "name": "to", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Historical pollen for a coordinate over a time range."
+        },
+        {
+          "info": {
+            "name": "Pollen forecast by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/forecast/pollen/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Pollen forecast for a coordinate."
+        },
+        {
+          "info": {
+            "name": "120-hour pollen forecast by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/forecast/v2/pollen/120hr/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "120-hour pollen forecast for a coordinate."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Weather",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest weather by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/weather/latest/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" },
+              { "name": "units", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Latest micro-weather for a coordinate."
+        },
+        {
+          "info": {
+            "name": "Historical weather by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/weather/history/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" },
+              { "name": "from", "value": "", "type": "query" },
+              { "name": "to", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Historical weather for a coordinate over a time range."
+        },
+        {
+          "info": {
+            "name": "Weather forecast by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/weather/forecast/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Weather forecast for a coordinate."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fire",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Active wildfires by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/fire/latest/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Active wildfire detections near a coordinate."
+        },
+        {
+          "info": {
+            "name": "Fire risk by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/fire/risk/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Fire-risk assessment for a coordinate."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Soil",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest soil data by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/soil/latest/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Latest soil temperature and moisture for a coordinate."
+        },
+        {
+          "info": {
+            "name": "Historical soil data by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/soil/history/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" },
+              { "name": "from", "value": "", "type": "query" },
+              { "name": "to", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Historical soil data for a coordinate over a time range."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NDVI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest NDVI by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/ndvi/latest/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Latest NDVI/EVI vegetation index for a coordinate."
+        },
+        {
+          "info": {
+            "name": "Historical NDVI by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/ndvi/history/by-lat-lng",
+            "params": [
+              { "name": "lat", "value": "", "type": "query" },
+              { "name": "lng", "value": "", "type": "query" },
+              { "name": "from", "value": "", "type": "query" },
+              { "name": "to", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Historical NDVI/EVI for a coordinate over a time range."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,71 @@
+aid: ambee
+name: Ambee
+review:
+  question: Does Ambee expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Ambee's documented surface is entirely
+    request/response REST over HTTPS. Ambee does offer Webhooks for alerts and
+    data dumps, but webhooks are server-to-client HTTP callbacks, not a
+    WebSocket or SSE streaming transport, and were not modeled as AsyncAPI in
+    this pass.
+findings:
+  summary: |
+    Ambee does not publish a documented public WebSocket API. The Ambee
+    platform exposes only REST (HTTPS) endpoints under
+    https://api.ambeedata.com, authenticated with an x-api-key header and
+    scoped by lat/lng, postal code, city, country code, or place. Real-time
+    push is offered via Webhooks (HTTP callbacks for alerts and data dumps),
+    not via a bidirectional ws:// or wss:// stream. No WebSocket or
+    Server-Sent Events surface is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.ambeedata.com
+      documented: true
+    - protocol: Webhooks
+      scheme: https
+      note: Server-to-client HTTP callbacks for alerts and data dumps. Not WebSocket.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Ambee's API reference or product pages as of the review date.
+  endpointsConfirmedRest:
+    - GET https://api.ambeedata.com/latest/by-lat-lng
+    - GET https://api.ambeedata.com/latest/by-city
+    - GET https://api.ambeedata.com/latest/by-postal-code
+    - GET https://api.ambeedata.com/history/by-lat-lng
+    - GET https://api.ambeedata.com/forecast/aq/by-lat-lng
+    - GET https://api.ambeedata.com/latest/pollen/by-lat-lng
+    - GET https://api.ambeedata.com/history/pollen/by-lat-lng
+    - GET https://api.ambeedata.com/forecast/pollen/by-lat-lng
+    - GET https://api.ambeedata.com/forecast/v2/pollen/120hr/by-lat-lng
+    - GET https://api.ambeedata.com/weather/latest/by-lat-lng
+    - GET https://api.ambeedata.com/weather/history/by-lat-lng
+    - GET https://api.ambeedata.com/weather/forecast/by-lat-lng
+    - GET https://api.ambeedata.com/fire/latest/by-lat-lng
+    - GET https://api.ambeedata.com/fire/risk/by-lat-lng
+    - GET https://api.ambeedata.com/soil/latest/by-lat-lng
+    - GET https://api.ambeedata.com/ndvi/latest/by-lat-lng
+sources:
+  - url: https://docs.ambeedata.com/apis/overview
+    type: Documentation
+    note: Lists REST base URL https://api.ambeedata.com and x-api-key auth; all endpoints are HTTPS GET.
+  - url: https://docs.ambeedata.com/apis/playground
+    type: APIReference
+    note: Interactive playground exercises HTTPS REST endpoints only.
+  - url: https://docs.ambeedata.com/products/Webhooks/
+    type: Documentation
+    note: Webhooks are HTTP callbacks for alerts and data dumps, not WebSocket.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Ambee's only push mechanism is HTTP
+    webhooks, which are out of AsyncAPI scope for this pass, so no AsyncAPI
+    document was authored. The apis.yml catalogs the six REST products
+    (Air Quality, Pollen, Weather, Fire, Soil, NDVI/Vegetation).

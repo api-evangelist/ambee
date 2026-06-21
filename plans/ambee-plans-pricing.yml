@@ -1,0 +1,82 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Ambee
+providerId: ambee
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Environmental Intelligence
+- Air Quality
+- Weather
+- Pollen
+- Geospatial
+- Plans
+description: >-
+  Ambee does not publish fixed per-call list prices on its pricing page.
+  Access is organized around an Evaluation tier (a free trial / API key for
+  testing data quality and response times before launch) and an Enterprise
+  tier (custom contracts for integrating Ambee's environmental APIs at scale,
+  with tailored APIs, bulk dataset access, and specialized features). Exact
+  request quotas and per-product pricing are quoted by Ambee sales and are
+  not reconciled in this artifact.
+notes: >-
+  Pricing is "upon request" on getambee.com/pricing. Verify trial quotas and
+  enterprise terms with Ambee during reconciliation; third-party marketplaces
+  (e.g. RapidApi) may list separate metered tiers for individual Ambee
+  products.
+sources:
+- https://www.getambee.com/pricing
+- https://docs.ambeedata.com/apis/overview
+plans:
+- id: ambee-evaluation
+  name: Evaluation
+  type: trial
+  description: >-
+    Free trial / evaluation API key to test Ambee data quality, coverage, and
+    response times across products before committing to a paid plan.
+  entries:
+  - label: Trial API Access
+    name: trial_access
+    type: trial
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free trial (quota set at signup)
+    userMultiplied: false
+  elements:
+  - name: Air Quality
+  - name: Pollen
+  - name: Weather
+  - name: Fire
+  - name: Soil
+  - name: NDVI / Vegetation
+- id: ambee-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom contract to integrate Ambee's environmental APIs at scale, with
+    tailored endpoints, large/bulk dataset access, historical depth, and
+    specialized features. Contact Ambee sales for a quote.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: Bulk / Historical Data Access
+  - name: Tailored APIs and Features
+  - name: Webhooks and Data Dumps
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
