@@ -145,6 +145,12 @@ apis:
     latitude/longitude or place for monitoring vegetation density, agroforestry,
     and crop health over time.
 common:
+- type: DomainSecurity
+  url: security/ambee-domain-security.yml
+- type: Authentication
+  url: authentication/ambee-authentication.yml
+- type: Blog
+  url: https://www.getambee.com/blogs
 - type: GitHubOrganization
   url: https://github.com/ambeedata
 - type: LinkedIn
