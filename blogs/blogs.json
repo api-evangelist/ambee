@@ -1,0 +1,14 @@
+{
+  "repo": "ambee",
+  "feeds": [
+    {
+      "source": "https://www.getambee.com/blogs",
+      "feed_url": "https://www.getambee.com/blogs",
+      "title": "Ambee Blog",
+      "saved": 0,
+      "error": "parse_failed"
+    }
+  ],
+  "fetched": "2026-07-11T11:43:46Z",
+  "post_count": 5
+}
