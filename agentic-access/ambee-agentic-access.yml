@@ -1,0 +1,204 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/ambee-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 19
+  by_action_class:
+    connected: 19
+  by_consequence:
+    read: 19
+  human_in_the_loop_required: 0
+operations:
+- path: /latest/by-lat-lng
+  method: get
+  operationId: getAirQualityLatestByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest/by-city
+  method: get
+  operationId: getAirQualityLatestByCity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest/by-postal-code
+  method: get
+  operationId: getAirQualityLatestByPostalCode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /history/by-lat-lng
+  method: get
+  operationId: getAirQualityHistoryByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /forecast/aq/by-lat-lng
+  method: get
+  operationId: getAirQualityForecastByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest/pollen/by-lat-lng
+  method: get
+  operationId: getPollenLatestByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest/pollen/by-place
+  method: get
+  operationId: getPollenLatestByPlace
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /history/pollen/by-lat-lng
+  method: get
+  operationId: getPollenHistoryByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /forecast/pollen/by-lat-lng
+  method: get
+  operationId: getPollenForecastByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /forecast/v2/pollen/120hr/by-lat-lng
+  method: get
+  operationId: getPollen120hrForecastByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /weather/latest/by-lat-lng
+  method: get
+  operationId: getWeatherLatestByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /weather/history/by-lat-lng
+  method: get
+  operationId: getWeatherHistoryByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /weather/forecast/by-lat-lng
+  method: get
+  operationId: getWeatherForecastByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fire/latest/by-lat-lng
+  method: get
+  operationId: getFireLatestByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fire/risk/by-lat-lng
+  method: get
+  operationId: getFireRiskByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /soil/latest/by-lat-lng
+  method: get
+  operationId: getSoilLatestByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /soil/history/by-lat-lng
+  method: get
+  operationId: getSoilHistoryByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ndvi/latest/by-lat-lng
+  method: get
+  operationId: getNdviLatestByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ndvi/history/by-lat-lng
+  method: get
+  operationId: getNdviHistoryByLatLng
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

@@ -145,6 +145,8 @@ apis:
     latitude/longitude or place for monitoring vegetation density, agroforestry,
     and crop health over time.
 common:
+- type: AgenticAccess
+  url: agentic-access/ambee-agentic-access.yml
 - type: DomainSecurity
   url: security/ambee-domain-security.yml
 - type: Authentication
