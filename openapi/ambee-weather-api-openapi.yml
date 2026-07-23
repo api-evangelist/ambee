@@ -1,0 +1,178 @@
+openapi: 3.0.1
+info:
+  title: Ambee Air Quality Weather API
+  description: Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.
+  termsOfService: https://www.getambee.com/terms-and-conditions
+  contact:
+    name: Ambee Support
+    url: https://www.getambee.com/contact-us
+  version: '1.0'
+servers:
+- url: https://api.ambeedata.com
+security:
+- ApiKeyAuth: []
+tags:
+- name: Weather
+paths:
+  /weather/latest/by-lat-lng:
+    get:
+      operationId: getWeatherLatestByLatLng
+      tags:
+      - Weather
+      summary: Latest weather by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      - name: units
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - si
+          - us
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeatherResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /weather/history/by-lat-lng:
+    get:
+      operationId: getWeatherHistoryByLatLng
+      tags:
+      - Weather
+      summary: Historical weather by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeatherResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /weather/forecast/by-lat-lng:
+    get:
+      operationId: getWeatherForecastByLatLng
+      tags:
+      - Weather
+      summary: Weather forecast by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeatherResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    WeatherData:
+      type: object
+      properties:
+        time:
+          type: integer
+        summary:
+          type: string
+        icon:
+          type: string
+        temperature:
+          type: number
+        apparentTemperature:
+          type: number
+        dewPoint:
+          type: number
+        humidity:
+          type: number
+        pressure:
+          type: number
+        windSpeed:
+          type: number
+        windGust:
+          type: number
+        windBearing:
+          type: number
+        cloudCover:
+          type: number
+        uvIndex:
+          type: number
+        visibility:
+          type: number
+        ozone:
+          type: number
+        precipIntensity:
+          type: number
+        precipProbability:
+          type: number
+        precipType:
+          type: string
+    WeatherResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        lat:
+          type: number
+        lng:
+          type: number
+        data:
+          $ref: '#/components/schemas/WeatherData'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

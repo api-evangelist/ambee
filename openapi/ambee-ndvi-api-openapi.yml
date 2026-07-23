@@ -1,0 +1,125 @@
+openapi: 3.0.1
+info:
+  title: Ambee Air Quality NDVI API
+  description: Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.
+  termsOfService: https://www.getambee.com/terms-and-conditions
+  contact:
+    name: Ambee Support
+    url: https://www.getambee.com/contact-us
+  version: '1.0'
+servers:
+- url: https://api.ambeedata.com
+security:
+- ApiKeyAuth: []
+tags:
+- name: NDVI
+paths:
+  /ndvi/latest/by-lat-lng:
+    get:
+      operationId: getNdviLatestByLatLng
+      tags:
+      - NDVI
+      summary: Latest NDVI by latitude and longitude
+      description: Returns the most recent Normalized Difference Vegetation Index (NDVI/EVI) value for a coordinate.
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NdviResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /ndvi/history/by-lat-lng:
+    get:
+      operationId: getNdviHistoryByLatLng
+      tags:
+      - NDVI
+      summary: Historical NDVI by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NdviResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    NdviResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        lat:
+          type: number
+        lng:
+          type: number
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NdviData'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
+    NdviData:
+      type: object
+      properties:
+        time:
+          type: integer
+        ndvi:
+          type: number
+        evi:
+          type: number
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

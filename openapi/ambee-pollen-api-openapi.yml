@@ -1,0 +1,209 @@
+openapi: 3.0.1
+info:
+  title: Ambee Air Quality Pollen API
+  description: Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.
+  termsOfService: https://www.getambee.com/terms-and-conditions
+  contact:
+    name: Ambee Support
+    url: https://www.getambee.com/contact-us
+  version: '1.0'
+servers:
+- url: https://api.ambeedata.com
+security:
+- ApiKeyAuth: []
+tags:
+- name: Pollen
+paths:
+  /latest/pollen/by-lat-lng:
+    get:
+      operationId: getPollenLatestByLatLng
+      tags:
+      - Pollen
+      summary: Latest pollen by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PollenResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /latest/pollen/by-place:
+    get:
+      operationId: getPollenLatestByPlace
+      tags:
+      - Pollen
+      summary: Latest pollen by place
+      parameters:
+      - $ref: '#/components/parameters/place'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PollenResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /history/pollen/by-lat-lng:
+    get:
+      operationId: getPollenHistoryByLatLng
+      tags:
+      - Pollen
+      summary: Historical pollen by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PollenResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /forecast/pollen/by-lat-lng:
+    get:
+      operationId: getPollenForecastByLatLng
+      tags:
+      - Pollen
+      summary: Pollen forecast by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PollenResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /forecast/v2/pollen/120hr/by-lat-lng:
+    get:
+      operationId: getPollen120hrForecastByLatLng
+      tags:
+      - Pollen
+      summary: 120-hour pollen forecast by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PollenResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    PollenData:
+      type: object
+      properties:
+        time:
+          type: integer
+        lat:
+          type: number
+        lng:
+          type: number
+        Count:
+          $ref: '#/components/schemas/PollenCount'
+        Risk:
+          $ref: '#/components/schemas/PollenRisk'
+        updatedAt:
+          type: string
+          format: date-time
+    PollenRisk:
+      type: object
+      properties:
+        grass_pollen:
+          type: string
+        tree_pollen:
+          type: string
+        weed_pollen:
+          type: string
+    PollenResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        lat:
+          type: number
+        lng:
+          type: number
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PollenData'
+    PollenCount:
+      type: object
+      properties:
+        grass_pollen:
+          type: integer
+        tree_pollen:
+          type: integer
+        weed_pollen:
+          type: integer
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
+    place:
+      name: place
+      in: query
+      required: true
+      description: Place or location name to resolve.
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

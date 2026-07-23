@@ -1,0 +1,117 @@
+openapi: 3.0.1
+info:
+  title: Ambee Air Quality Fire API
+  description: Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.
+  termsOfService: https://www.getambee.com/terms-and-conditions
+  contact:
+    name: Ambee Support
+    url: https://www.getambee.com/contact-us
+  version: '1.0'
+servers:
+- url: https://api.ambeedata.com
+security:
+- ApiKeyAuth: []
+tags:
+- name: Fire
+paths:
+  /fire/latest/by-lat-lng:
+    get:
+      operationId: getFireLatestByLatLng
+      tags:
+      - Fire
+      summary: Active wildfires by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FireResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /fire/risk/by-lat-lng:
+    get:
+      operationId: getFireRiskByLatLng
+      tags:
+      - Fire
+      summary: Fire risk by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FireResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
+    FireResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FireEvent'
+    FireEvent:
+      type: object
+      properties:
+        lat:
+          type: number
+        lng:
+          type: number
+        confidence:
+          type: number
+        brightness:
+          type: number
+        frp:
+          type: number
+        detectedAt:
+          type: string
+          format: date-time
+        satellite:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

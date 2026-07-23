@@ -1,0 +1,210 @@
+openapi: 3.0.1
+info:
+  title: Ambee Air Quality API
+  description: Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.
+  termsOfService: https://www.getambee.com/terms-and-conditions
+  contact:
+    name: Ambee Support
+    url: https://www.getambee.com/contact-us
+  version: '1.0'
+servers:
+- url: https://api.ambeedata.com
+security:
+- ApiKeyAuth: []
+tags:
+- name: Air Quality
+paths:
+  /latest/by-lat-lng:
+    get:
+      operationId: getAirQualityLatestByLatLng
+      tags:
+      - Air Quality
+      summary: Latest air quality by latitude and longitude
+      description: Returns the most recent air quality reading (AQI and pollutant concentrations) for a coordinate.
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirQualityResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /latest/by-city:
+    get:
+      operationId: getAirQualityLatestByCity
+      tags:
+      - Air Quality
+      summary: Latest air quality by city
+      parameters:
+      - name: city
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirQualityResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /latest/by-postal-code:
+    get:
+      operationId: getAirQualityLatestByPostalCode
+      tags:
+      - Air Quality
+      summary: Latest air quality by postal code
+      parameters:
+      - name: postalCode
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: countryCode
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirQualityResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /history/by-lat-lng:
+    get:
+      operationId: getAirQualityHistoryByLatLng
+      tags:
+      - Air Quality
+      summary: Historical air quality by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirQualityResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /forecast/aq/by-lat-lng:
+    get:
+      operationId: getAirQualityForecastByLatLng
+      tags:
+      - Air Quality
+      summary: Air quality forecast by latitude and longitude
+      parameters:
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lng'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirQualityResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    AirQualityReading:
+      type: object
+      properties:
+        CO:
+          type: number
+        NO2:
+          type: number
+        OZONE:
+          type: number
+        PM10:
+          type: number
+        PM25:
+          type: number
+        SO2:
+          type: number
+        AQI:
+          type: integer
+        aqiInfo:
+          type: object
+          properties:
+            pollutant:
+              type: string
+            concentration:
+              type: number
+            category:
+              type: string
+        lat:
+          type: number
+        lng:
+          type: number
+        updatedAt:
+          type: string
+          format: date-time
+    AirQualityResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        stations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirQualityReading'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
