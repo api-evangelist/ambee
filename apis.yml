@@ -7,7 +7,20 @@ description: Ambee is an environmental-intelligence company that aggregates sate
   hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data
   worldwide via simple lat/lng, postal-code, and place lookups secured with an
   x-api-key header.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Enterprise (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ambee.png
 tags:
 - Environmental Intelligence
 - Air Quality
@@ -18,132 +31,114 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: ambee:air-quality
+- aid: ambee:ambee-air-quality-api
   name: Ambee Air Quality API
-  tags:
-  - Air Quality
-  - AQI
-  - Pollution
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  description: The Air Quality API from Ambee — 5 operation(s) for air quality.
   humanURL: https://www.getambee.com/api/air-quality
   baseURL: https://api.ambeedata.com
-  properties:
-  - url: https://docs.ambeedata.com/apis/overview
-    type: Documentation
-  - url: https://docs.ambeedata.com/apis/playground
-    type: APIReference
-  - url: openapi/ambee-openapi.yml
-    type: OpenAPI
-  - url: collections/ambee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ambee.opencollection.json
-    type: OpenCollection
-  description: Hyperlocal air quality and AQI data (PM2.5, PM10, NO2, O3, SO2, CO)
-    by latitude/longitude, city, country code, or postal code, plus historical and
-    forecast lookups.
-- aid: ambee:pollen
-  name: Ambee Pollen API
   tags:
-  - Pollen
-  - Allergens
-  - Health
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.getambee.com/api/pollen
-  baseURL: https://api.ambeedata.com
+  - Air Quality
   properties:
-  - url: https://docs.ambeedata.com/apis/overview
-    type: Documentation
-  - url: openapi/ambee-openapi.yml
-    type: OpenAPI
-  - url: collections/ambee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ambee.opencollection.json
-    type: OpenCollection
-  description: Hyperlocal pollen counts and risk levels for tree, grass, and weed
-    pollen by latitude/longitude or place, with latest, historical, and 120-hour
-    forecast endpoints.
-- aid: ambee:weather
-  name: Ambee Weather API
-  tags:
-  - Weather
-  - Micro Weather
-  - Forecast
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.getambee.com/api/weather
-  baseURL: https://api.ambeedata.com
-  properties:
-  - url: https://docs.ambeedata.com/apis/overview
-    type: Documentation
-  - url: openapi/ambee-openapi.yml
-    type: OpenAPI
-  - url: collections/ambee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ambee.opencollection.json
-    type: OpenCollection
-  description: Hyperlocal micro-weather including temperature, humidity, wind,
-    pressure, precipitation, UV index, and cloud cover by latitude/longitude, with
-    latest, historical, and forecast endpoints.
-- aid: ambee:fire
+  - type: OpenAPI
+    url: openapi/ambee-air-quality-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ambeedata.com/apis/overview
+  - type: APIReference
+    url: https://docs.ambeedata.com/apis/playground
+  - type: PostmanCollection
+    url: collections/ambee.postman_collection.json
+  - type: OpenCollection
+    url: collections/ambee.opencollection.json
+- aid: ambee:ambee-fire-api
   name: Ambee Fire API
-  tags:
-  - Wildfire
-  - Fire Risk
-  - Hazards
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.getambee.com/api/fire
+  description: The Fire API from Ambee — 2 operation(s) for fire.
+  humanURL: https://www.getambee.com/api/air-quality
   baseURL: https://api.ambeedata.com
-  properties:
-  - url: https://docs.ambeedata.com/apis/overview
-    type: Documentation
-  - url: openapi/ambee-openapi.yml
-    type: OpenAPI
-  - url: collections/ambee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ambee.opencollection.json
-    type: OpenCollection
-  description: Active wildfire detections and fire-risk assessments by latitude/longitude
-    or place, sourced from satellite hotspot feeds.
-- aid: ambee:soil
-  name: Ambee Soil API
   tags:
-  - Soil
-  - Agriculture
-  - Geospatial
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.getambee.com/api/soil
-  baseURL: https://api.ambeedata.com
+  - Fire
   properties:
-  - url: https://docs.ambeedata.com/apis/overview
-    type: Documentation
-  - url: openapi/ambee-openapi.yml
-    type: OpenAPI
-  - url: collections/ambee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ambee.opencollection.json
-    type: OpenCollection
-  description: Soil temperature and soil moisture data at multiple depths by
-    latitude/longitude or place, for agriculture, irrigation, and yield planning.
-- aid: ambee:ndvi-vegetation
-  name: Ambee NDVI / Vegetation API
+  - type: OpenAPI
+    url: openapi/ambee-fire-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ambeedata.com/apis/overview
+  - type: APIReference
+    url: https://docs.ambeedata.com/apis/playground
+  - type: PostmanCollection
+    url: collections/ambee.postman_collection.json
+  - type: OpenCollection
+    url: collections/ambee.opencollection.json
+- aid: ambee:ambee-ndvi-api
+  name: Ambee NDVI API
+  description: The NDVI API from Ambee — 2 operation(s) for ndvi.
+  humanURL: https://www.getambee.com/api/air-quality
+  baseURL: https://api.ambeedata.com
   tags:
   - NDVI
-  - Vegetation
-  - Remote Sensing
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.getambee.com/api/ndvi-evi
-  baseURL: https://api.ambeedata.com
   properties:
-  - url: https://docs.ambeedata.com/apis/overview
-    type: Documentation
-  - url: openapi/ambee-openapi.yml
-    type: OpenAPI
-  - url: collections/ambee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ambee.opencollection.json
-    type: OpenCollection
-  description: Normalized Difference Vegetation Index (NDVI/EVI) values by
-    latitude/longitude or place for monitoring vegetation density, agroforestry,
-    and crop health over time.
+  - type: OpenAPI
+    url: openapi/ambee-ndvi-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ambeedata.com/apis/overview
+  - type: APIReference
+    url: https://docs.ambeedata.com/apis/playground
+  - type: PostmanCollection
+    url: collections/ambee.postman_collection.json
+  - type: OpenCollection
+    url: collections/ambee.opencollection.json
+- aid: ambee:ambee-pollen-api
+  name: Ambee Pollen API
+  description: The Pollen API from Ambee — 5 operation(s) for pollen.
+  humanURL: https://www.getambee.com/api/air-quality
+  baseURL: https://api.ambeedata.com
+  tags:
+  - Pollen
+  properties:
+  - type: OpenAPI
+    url: openapi/ambee-pollen-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ambeedata.com/apis/overview
+  - type: APIReference
+    url: https://docs.ambeedata.com/apis/playground
+  - type: PostmanCollection
+    url: collections/ambee.postman_collection.json
+  - type: OpenCollection
+    url: collections/ambee.opencollection.json
+- aid: ambee:ambee-soil-api
+  name: Ambee Soil API
+  description: The Soil API from Ambee — 2 operation(s) for soil.
+  humanURL: https://www.getambee.com/api/air-quality
+  baseURL: https://api.ambeedata.com
+  tags:
+  - Soil
+  properties:
+  - type: OpenAPI
+    url: openapi/ambee-soil-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ambeedata.com/apis/overview
+  - type: APIReference
+    url: https://docs.ambeedata.com/apis/playground
+  - type: PostmanCollection
+    url: collections/ambee.postman_collection.json
+  - type: OpenCollection
+    url: collections/ambee.opencollection.json
+- aid: ambee:ambee-weather-api
+  name: Ambee Weather API
+  description: The Weather API from Ambee — 3 operation(s) for weather.
+  humanURL: https://www.getambee.com/api/air-quality
+  baseURL: https://api.ambeedata.com
+  tags:
+  - Weather
+  properties:
+  - type: OpenAPI
+    url: openapi/ambee-weather-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ambeedata.com/apis/overview
+  - type: APIReference
+    url: https://docs.ambeedata.com/apis/playground
+  - type: PostmanCollection
+    url: collections/ambee.postman_collection.json
+  - type: OpenCollection
+    url: collections/ambee.opencollection.json
 common:
 - type: AgenticAccess
   url: agentic-access/ambee-agentic-access.yml
