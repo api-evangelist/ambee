@@ -1,0 +1,24 @@
+{
+  "provider": "ambee",
+  "sources": [
+    "ambee-air-quality-api-openapi.yml",
+    "ambee-fire-api-openapi.yml",
+    "ambee-ndvi-api-openapi.yml",
+    "ambee-pollen-api-openapi.yml",
+    "ambee-soil-api-openapi.yml",
+    "ambee-weather-api-openapi.yml"
+  ],
+  "outputs": [
+    "ambee-air-quality-api-openapi.yml",
+    "ambee-fire-api-openapi.yml",
+    "ambee-ndvi-api-openapi.yml",
+    "ambee-pollen-api-openapi.yml",
+    "ambee-soil-api-openapi.yml",
+    "ambee-weather-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
