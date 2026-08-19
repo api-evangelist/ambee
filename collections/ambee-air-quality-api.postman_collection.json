@@ -1,0 +1,826 @@
+{
+  "item": [
+    {
+      "id": "0ef8455f-39c4-4c5d-9a08-c2f1300a1708",
+      "name": "Air Quality",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0bf2f54e-c55e-4b7e-9017-31c781838eb9",
+          "name": "Latest air quality by latitude and longitude",
+          "request": {
+            "name": "Latest air quality by latitude and longitude",
+            "description": {
+              "content": "Returns the most recent air quality reading (AQI and pollutant concentrations) for a coordinate.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "latest",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4eb0bea-b7bd-4724-8d25-d624c40a83dd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"stations\": [\n    {\n      \"CO\": 2786.0880402044254,\n      \"NO2\": 7122.755878606458,\n      \"OZONE\": 8349.478290167859,\n      \"PM10\": 2562.816753663463,\n      \"PM25\": 73.6093580107,\n      \"SO2\": 326.37181384275516,\n      \"AQI\": 4072,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 6137.01168604826,\n        \"category\": \"string\"\n      },\n      \"lat\": 7096.415256770373,\n      \"lng\": 7999.347268074397,\n      \"updatedAt\": \"1947-03-14T18:55:24.547Z\"\n    },\n    {\n      \"CO\": 2015.0487729620259,\n      \"NO2\": 4657.956235943334,\n      \"OZONE\": 6594.09384013866,\n      \"PM10\": 7779.113177807274,\n      \"PM25\": 2167.302155514217,\n      \"SO2\": 7063.389975975507,\n      \"AQI\": 8571,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 822.3699833908261,\n        \"category\": \"string\"\n      },\n      \"lat\": 606.5770204584908,\n      \"lng\": 3686.6482371404118,\n      \"updatedAt\": \"1954-03-29T20:36:37.473Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4779966a-6f48-40d0-bb08-4989aa2d1f94",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e0e67ee-d577-4cc7-bfff-bd3a97b95934",
+          "name": "Latest air quality by city",
+          "request": {
+            "name": "Latest air quality by city",
+            "description": {},
+            "url": {
+              "path": [
+                "latest",
+                "by-city"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ef28ec8-9df3-47cb-b810-b02544178983",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "by-city"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"stations\": [\n    {\n      \"CO\": 4727.186468457901,\n      \"NO2\": 4438.09449164004,\n      \"OZONE\": 3661.2214924443365,\n      \"PM10\": 8236.664296834424,\n      \"PM25\": 3344.2194112463453,\n      \"SO2\": 990.406056384161,\n      \"AQI\": 5575,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 1378.7859175067174,\n        \"category\": \"string\"\n      },\n      \"lat\": 2789.9531032746304,\n      \"lng\": 5099.982693038188,\n      \"updatedAt\": \"1982-08-07T04:54:52.627Z\"\n    },\n    {\n      \"CO\": 3839.104505268455,\n      \"NO2\": 9976.551815016068,\n      \"OZONE\": 9568.937266378145,\n      \"PM10\": 4068.695761744735,\n      \"PM25\": 2235.832626066658,\n      \"SO2\": 7950.696796933618,\n      \"AQI\": 8192,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 6849.689105953171,\n        \"category\": \"string\"\n      },\n      \"lat\": 1054.2265340217173,\n      \"lng\": 8663.106996079383,\n      \"updatedAt\": \"1990-01-03T13:18:06.075Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e32281f6-4ab6-42dd-8f35-adfc4f957b44",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "by-city"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3cd10d0-9272-43b3-a6c6-39a24279d1c8",
+          "name": "Latest air quality by postal code",
+          "request": {
+            "name": "Latest air quality by postal code",
+            "description": {},
+            "url": {
+              "path": [
+                "latest",
+                "by-postal-code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "postalCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4493a71-fffb-4ea1-bd94-249f36c9790c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "by-postal-code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"stations\": [\n    {\n      \"CO\": 4727.186468457901,\n      \"NO2\": 4438.09449164004,\n      \"OZONE\": 3661.2214924443365,\n      \"PM10\": 8236.664296834424,\n      \"PM25\": 3344.2194112463453,\n      \"SO2\": 990.406056384161,\n      \"AQI\": 5575,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 1378.7859175067174,\n        \"category\": \"string\"\n      },\n      \"lat\": 2789.9531032746304,\n      \"lng\": 5099.982693038188,\n      \"updatedAt\": \"1982-08-07T04:54:52.627Z\"\n    },\n    {\n      \"CO\": 3839.104505268455,\n      \"NO2\": 9976.551815016068,\n      \"OZONE\": 9568.937266378145,\n      \"PM10\": 4068.695761744735,\n      \"PM25\": 2235.832626066658,\n      \"SO2\": 7950.696796933618,\n      \"AQI\": 8192,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 6849.689105953171,\n        \"category\": \"string\"\n      },\n      \"lat\": 1054.2265340217173,\n      \"lng\": 8663.106996079383,\n      \"updatedAt\": \"1990-01-03T13:18:06.075Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb6c3ae9-01b4-4429-870f-0d3defb514c3",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "by-postal-code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98e3c634-1565-4d73-9caa-9ca00914cea5",
+          "name": "Historical air quality by latitude and longitude",
+          "request": {
+            "name": "Historical air quality by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "history",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc70c837-1095-40bb-918d-539e75ad0d41",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "history",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"stations\": [\n    {\n      \"CO\": 4727.186468457901,\n      \"NO2\": 4438.09449164004,\n      \"OZONE\": 3661.2214924443365,\n      \"PM10\": 8236.664296834424,\n      \"PM25\": 3344.2194112463453,\n      \"SO2\": 990.406056384161,\n      \"AQI\": 5575,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 1378.7859175067174,\n        \"category\": \"string\"\n      },\n      \"lat\": 2789.9531032746304,\n      \"lng\": 5099.982693038188,\n      \"updatedAt\": \"1982-08-07T04:54:52.627Z\"\n    },\n    {\n      \"CO\": 3839.104505268455,\n      \"NO2\": 9976.551815016068,\n      \"OZONE\": 9568.937266378145,\n      \"PM10\": 4068.695761744735,\n      \"PM25\": 2235.832626066658,\n      \"SO2\": 7950.696796933618,\n      \"AQI\": 8192,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 6849.689105953171,\n        \"category\": \"string\"\n      },\n      \"lat\": 1054.2265340217173,\n      \"lng\": 8663.106996079383,\n      \"updatedAt\": \"1990-01-03T13:18:06.075Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "426db169-12ac-4ec6-abca-b9ea8bae805e",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "history",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa8704e7-8abd-44e0-96ed-921ef0f19af0",
+          "name": "Air quality forecast by latitude and longitude",
+          "request": {
+            "name": "Air quality forecast by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "forecast",
+                "aq",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d581476f-8c7d-46e6-8704-b190475882a2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "aq",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"stations\": [\n    {\n      \"CO\": 4727.186468457901,\n      \"NO2\": 4438.09449164004,\n      \"OZONE\": 3661.2214924443365,\n      \"PM10\": 8236.664296834424,\n      \"PM25\": 3344.2194112463453,\n      \"SO2\": 990.406056384161,\n      \"AQI\": 5575,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 1378.7859175067174,\n        \"category\": \"string\"\n      },\n      \"lat\": 2789.9531032746304,\n      \"lng\": 5099.982693038188,\n      \"updatedAt\": \"1982-08-07T04:54:52.627Z\"\n    },\n    {\n      \"CO\": 3839.104505268455,\n      \"NO2\": 9976.551815016068,\n      \"OZONE\": 9568.937266378145,\n      \"PM10\": 4068.695761744735,\n      \"PM25\": 2235.832626066658,\n      \"SO2\": 7950.696796933618,\n      \"AQI\": 8192,\n      \"aqiInfo\": {\n        \"pollutant\": \"string\",\n        \"concentration\": 6849.689105953171,\n        \"category\": \"string\"\n      },\n      \"lat\": 1054.2265340217173,\n      \"lng\": 8663.106996079383,\n      \"updatedAt\": \"1990-01-03T13:18:06.075Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0377fb8-4d95-4b58-9c76-06518c1a010b",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "aq",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ambeedata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "81fff514-c3d4-49ae-8bd4-e818239ee98f",
+    "name": "Ambee Air Quality API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.\n\nContact Support:\n Name: Ambee Support",
+      "type": "text/plain"
+    }
+  }
+}

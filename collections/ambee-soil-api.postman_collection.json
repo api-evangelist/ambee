@@ -1,0 +1,388 @@
+{
+  "item": [
+    {
+      "id": "b567087d-075b-4e22-9db8-21d6c9243e16",
+      "name": "Soil",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4197459d-23ea-4c99-bc17-446d6b3c21d1",
+          "name": "Latest soil data by latitude and longitude",
+          "request": {
+            "name": "Latest soil data by latitude and longitude",
+            "description": {
+              "content": "Returns soil temperature and soil moisture at standard depths for a coordinate.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "soil",
+                "latest",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "346b56c7-a534-416d-a658-99e665d812e0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "soil",
+                    "latest",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 6839.529574890956,\n  \"lng\": 9488.998648877316,\n  \"data\": [\n    {\n      \"time\": 7411,\n      \"soilTemperature\": 5768.090877881256,\n      \"soilMoisture\": 2870.751117551186,\n      \"depth\": \"string\",\n      \"unit\": \"string\"\n    },\n    {\n      \"time\": 7246,\n      \"soilTemperature\": 8918.970981732144,\n      \"soilMoisture\": 351.92724258392263,\n      \"depth\": \"string\",\n      \"unit\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "067fbac0-47de-4a77-9dba-206b58b3bb2f",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "soil",
+                    "latest",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54a1518a-6c0c-47df-8f19-8492f9b75800",
+          "name": "Historical soil data by latitude and longitude",
+          "request": {
+            "name": "Historical soil data by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "soil",
+                "history",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4a7f7c8-4a72-40f6-825e-b63923cf8e13",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "soil",
+                    "history",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 7262.641642288781,\n  \"lng\": 2005.3176418854234,\n  \"data\": [\n    {\n      \"time\": 8325,\n      \"soilTemperature\": 1236.6999912447518,\n      \"soilMoisture\": 1250.8073646796324,\n      \"depth\": \"string\",\n      \"unit\": \"string\"\n    },\n    {\n      \"time\": 2738,\n      \"soilTemperature\": 7432.284731736676,\n      \"soilMoisture\": 9439.829985000713,\n      \"depth\": \"string\",\n      \"unit\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48290cf4-b327-4113-8ded-0ba8d18ba020",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "soil",
+                    "history",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ambeedata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "84a38997-4d21-459d-8edb-97dd731814f4",
+    "name": "Ambee Air Quality Soil API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.\n\nContact Support:\n Name: Ambee Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ambee Air Quality Weather API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Weather",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest weather by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/weather/latest/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "units",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Latest weather by latitude and longitude"
+        },
+        {
+          "info": {
+            "name": "Historical weather by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/weather/history/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Historical weather by latitude and longitude"
+        },
+        {
+          "info": {
+            "name": "Weather forecast by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/weather/forecast/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              }
+            ]
+          },
+          "docs": "Weather forecast by latitude and longitude"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,388 @@
+{
+  "item": [
+    {
+      "id": "9e0be6a5-b278-4b51-b205-7a6a1e42b20c",
+      "name": "NDVI",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "69752356-e8ca-44d6-a08b-2b3822cf5778",
+          "name": "Latest NDVI by latitude and longitude",
+          "request": {
+            "name": "Latest NDVI by latitude and longitude",
+            "description": {
+              "content": "Returns the most recent Normalized Difference Vegetation Index (NDVI/EVI) value for a coordinate.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ndvi",
+                "latest",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aff57a16-6977-4987-8675-4d219c98d6cd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ndvi",
+                    "latest",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 9680.689889886124,\n  \"lng\": 4243.844225363276,\n  \"data\": [\n    {\n      \"time\": 3788,\n      \"ndvi\": 3986.5669462309515,\n      \"evi\": 3457.2167448456203\n    },\n    {\n      \"time\": 1846,\n      \"ndvi\": 6776.578153990743,\n      \"evi\": 1057.8668739201346\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66e95c8c-734e-4c6e-af86-9cfaa93a0557",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ndvi",
+                    "latest",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e66257c6-8366-4c86-955b-da4bac399af4",
+          "name": "Historical NDVI by latitude and longitude",
+          "request": {
+            "name": "Historical NDVI by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "ndvi",
+                "history",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b8c3e56-0053-44e6-be2d-05b590db0777",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ndvi",
+                    "history",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 9757.539450751343,\n  \"lng\": 2796.32760530767,\n  \"data\": [\n    {\n      \"time\": 9817,\n      \"ndvi\": 5478.773434904577,\n      \"evi\": 6368.550204383992\n    },\n    {\n      \"time\": 5297,\n      \"ndvi\": 1180.7095120679023,\n      \"evi\": 2118.537248614738\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18ace3c2-d3f8-4fc9-b59f-575ec5e3cbb9",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ndvi",
+                    "history",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ambeedata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a55f3170-f454-4c3a-89f8-32f8320cde18",
+    "name": "Ambee Air Quality NDVI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.\n\nContact Support:\n Name: Ambee Support",
+      "type": "text/plain"
+    }
+  }
+}

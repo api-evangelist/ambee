@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ambee Air Quality API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Air Quality",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest air quality by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/latest/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              }
+            ]
+          },
+          "docs": "Returns the most recent air quality reading (AQI and pollutant concentrations) for a coordinate."
+        },
+        {
+          "info": {
+            "name": "Latest air quality by city",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/latest/by-city",
+            "params": [
+              {
+                "name": "city",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Latest air quality by city"
+        },
+        {
+          "info": {
+            "name": "Latest air quality by postal code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/latest/by-postal-code",
+            "params": [
+              {
+                "name": "postalCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Latest air quality by postal code"
+        },
+        {
+          "info": {
+            "name": "Historical air quality by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/history/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Historical air quality by latitude and longitude"
+        },
+        {
+          "info": {
+            "name": "Air quality forecast by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/forecast/aq/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              }
+            ]
+          },
+          "docs": "Air quality forecast by latitude and longitude"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

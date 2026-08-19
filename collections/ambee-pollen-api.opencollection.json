@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ambee Air Quality Pollen API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pollen",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest pollen by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/latest/pollen/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              }
+            ]
+          },
+          "docs": "Latest pollen by latitude and longitude"
+        },
+        {
+          "info": {
+            "name": "Latest pollen by place",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/latest/pollen/by-place",
+            "params": [
+              {
+                "name": "place",
+                "value": "",
+                "type": "query",
+                "description": "Place or location name to resolve."
+              }
+            ]
+          },
+          "docs": "Latest pollen by place"
+        },
+        {
+          "info": {
+            "name": "Historical pollen by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/history/pollen/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Historical pollen by latitude and longitude"
+        },
+        {
+          "info": {
+            "name": "Pollen forecast by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/forecast/pollen/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              }
+            ]
+          },
+          "docs": "Pollen forecast by latitude and longitude"
+        },
+        {
+          "info": {
+            "name": "120-hour pollen forecast by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/forecast/v2/pollen/120hr/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              }
+            ]
+          },
+          "docs": "120-hour pollen forecast by latitude and longitude"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

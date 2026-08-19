@@ -1,0 +1,553 @@
+{
+  "item": [
+    {
+      "id": "2f46d59a-88ba-40df-8a25-cb2dccc759eb",
+      "name": "Weather",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "330bb9f4-db09-401f-9ca1-7409398b826d",
+          "name": "Latest weather by latitude and longitude",
+          "request": {
+            "name": "Latest weather by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "weather",
+                "latest",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "units",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c78bf4a1-04d2-4feb-b051-c788e9faf671",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "weather",
+                    "latest",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "units",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 4331.8751918923845,\n  \"lng\": 4160.603195637269,\n  \"data\": {\n    \"time\": 9765,\n    \"summary\": \"string\",\n    \"icon\": \"string\",\n    \"temperature\": 32.536040972649396,\n    \"apparentTemperature\": 3214.1486720886714,\n    \"dewPoint\": 8628.109368557976,\n    \"humidity\": 1580.3065599386612,\n    \"pressure\": 9406.012423014246,\n    \"windSpeed\": 8497.964905173138,\n    \"windGust\": 6955.652851141493,\n    \"windBearing\": 5970.880784380188,\n    \"cloudCover\": 5834.457687588929,\n    \"uvIndex\": 4556.159862719548,\n    \"visibility\": 4130.26752951019,\n    \"ozone\": 8392.572486789462,\n    \"precipIntensity\": 1002.7044340401037,\n    \"precipProbability\": 5672.161136374026,\n    \"precipType\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85e51181-6125-4d5e-b3fd-bf7e8b98e558",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "weather",
+                    "latest",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "units",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb9c0ae8-e356-45f6-bb46-7a010029fc4d",
+          "name": "Historical weather by latitude and longitude",
+          "request": {
+            "name": "Historical weather by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "weather",
+                "history",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f927906f-5772-4396-9af3-fc6f02dda0a6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "weather",
+                    "history",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 4331.8751918923845,\n  \"lng\": 4160.603195637269,\n  \"data\": {\n    \"time\": 9765,\n    \"summary\": \"string\",\n    \"icon\": \"string\",\n    \"temperature\": 32.536040972649396,\n    \"apparentTemperature\": 3214.1486720886714,\n    \"dewPoint\": 8628.109368557976,\n    \"humidity\": 1580.3065599386612,\n    \"pressure\": 9406.012423014246,\n    \"windSpeed\": 8497.964905173138,\n    \"windGust\": 6955.652851141493,\n    \"windBearing\": 5970.880784380188,\n    \"cloudCover\": 5834.457687588929,\n    \"uvIndex\": 4556.159862719548,\n    \"visibility\": 4130.26752951019,\n    \"ozone\": 8392.572486789462,\n    \"precipIntensity\": 1002.7044340401037,\n    \"precipProbability\": 5672.161136374026,\n    \"precipType\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d9daae5-ecbc-48b9-b876-1c05b4565081",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "weather",
+                    "history",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bce13ca0-bf9b-46af-a77f-857ca547acad",
+          "name": "Weather forecast by latitude and longitude",
+          "request": {
+            "name": "Weather forecast by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "weather",
+                "forecast",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "130eba7a-2128-40c3-aded-ee1c11f90955",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "weather",
+                    "forecast",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 4331.8751918923845,\n  \"lng\": 4160.603195637269,\n  \"data\": {\n    \"time\": 9765,\n    \"summary\": \"string\",\n    \"icon\": \"string\",\n    \"temperature\": 32.536040972649396,\n    \"apparentTemperature\": 3214.1486720886714,\n    \"dewPoint\": 8628.109368557976,\n    \"humidity\": 1580.3065599386612,\n    \"pressure\": 9406.012423014246,\n    \"windSpeed\": 8497.964905173138,\n    \"windGust\": 6955.652851141493,\n    \"windBearing\": 5970.880784380188,\n    \"cloudCover\": 5834.457687588929,\n    \"uvIndex\": 4556.159862719548,\n    \"visibility\": 4130.26752951019,\n    \"ozone\": 8392.572486789462,\n    \"precipIntensity\": 1002.7044340401037,\n    \"precipProbability\": 5672.161136374026,\n    \"precipType\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2b9bdd3-5b30-4c78-abe2-bf2a4a9fe887",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "weather",
+                    "forecast",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ambeedata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "88434e97-1582-4794-a8f7-19731e4fbbd0",
+    "name": "Ambee Air Quality Weather API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.\n\nContact Support:\n Name: Ambee Support",
+      "type": "text/plain"
+    }
+  }
+}

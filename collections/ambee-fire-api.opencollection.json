@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ambee Air Quality Fire API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fire",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Active wildfires by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/fire/latest/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              }
+            ]
+          },
+          "docs": "Active wildfires by latitude and longitude"
+        },
+        {
+          "info": {
+            "name": "Fire risk by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/fire/risk/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              }
+            ]
+          },
+          "docs": "Fire risk by latitude and longitude"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

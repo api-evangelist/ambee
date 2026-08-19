@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ambee Air Quality Soil API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Soil",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest soil data by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/soil/latest/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              }
+            ]
+          },
+          "docs": "Returns soil temperature and soil moisture at standard depths for a coordinate."
+        },
+        {
+          "info": {
+            "name": "Historical soil data by latitude and longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ambeedata.com/soil/history/by-lat-lng",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Historical soil data by latitude and longitude"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

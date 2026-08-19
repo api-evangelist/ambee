@@ -1,0 +1,842 @@
+{
+  "item": [
+    {
+      "id": "d2cd264e-3e08-4412-99f8-f903323c9ef1",
+      "name": "Pollen",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6544dfc1-7d7d-4db3-b605-356659814081",
+          "name": "Latest pollen by latitude and longitude",
+          "request": {
+            "name": "Latest pollen by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "latest",
+                "pollen",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d86ae85b-46b3-41a2-859e-a648a708eec9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "pollen",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 55.41998748955446,\n  \"lng\": 2107.458081189504,\n  \"data\": [\n    {\n      \"time\": 2848,\n      \"lat\": 302.5378701570025,\n      \"lng\": 1236.4381929298918,\n      \"Count\": {\n        \"grass_pollen\": 4188,\n        \"tree_pollen\": 6704,\n        \"weed_pollen\": 9161\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"1985-09-16T05:34:34.009Z\"\n    },\n    {\n      \"time\": 2352,\n      \"lat\": 5343.170502104694,\n      \"lng\": 6425.00658241237,\n      \"Count\": {\n        \"grass_pollen\": 2926,\n        \"tree_pollen\": 6622,\n        \"weed_pollen\": 7541\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"1969-11-13T23:22:15.674Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bb3ccd7-2ce3-47b6-a9cf-c41d8c815b7e",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "pollen",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bb813d8-47b2-4f94-90f7-dbec30ac8cbe",
+          "name": "Latest pollen by place",
+          "request": {
+            "name": "Latest pollen by place",
+            "description": {},
+            "url": {
+              "path": [
+                "latest",
+                "pollen",
+                "by-place"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "place",
+                  "value": "<string>",
+                  "description": "(Required) Place or location name to resolve."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6802bbf-d3a2-4266-b704-fed150d9d11a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "pollen",
+                    "by-place"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "place",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 6484.744063646415,\n  \"lng\": 7619.778109596977,\n  \"data\": [\n    {\n      \"time\": 8631,\n      \"lat\": 3481.3807397820005,\n      \"lng\": 9974.778034836154,\n      \"Count\": {\n        \"grass_pollen\": 3632,\n        \"tree_pollen\": 4789,\n        \"weed_pollen\": 3072\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"2000-10-19T10:34:13.171Z\"\n    },\n    {\n      \"time\": 2788,\n      \"lat\": 3117.506327905557,\n      \"lng\": 5970.177725322787,\n      \"Count\": {\n        \"grass_pollen\": 2644,\n        \"tree_pollen\": 9051,\n        \"weed_pollen\": 9027\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"2023-08-24T22:49:05.101Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a2638ad-16e4-4fc1-9eb5-a4431fdcf7a4",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest",
+                    "pollen",
+                    "by-place"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "place",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a146468-fb2f-4c4e-8295-345a8c6e635c",
+          "name": "Historical pollen by latitude and longitude",
+          "request": {
+            "name": "Historical pollen by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "history",
+                "pollen",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "494bba14-fde0-4c73-a97c-9345194133fe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "history",
+                    "pollen",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 6484.744063646415,\n  \"lng\": 7619.778109596977,\n  \"data\": [\n    {\n      \"time\": 8631,\n      \"lat\": 3481.3807397820005,\n      \"lng\": 9974.778034836154,\n      \"Count\": {\n        \"grass_pollen\": 3632,\n        \"tree_pollen\": 4789,\n        \"weed_pollen\": 3072\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"2000-10-19T10:34:13.171Z\"\n    },\n    {\n      \"time\": 2788,\n      \"lat\": 3117.506327905557,\n      \"lng\": 5970.177725322787,\n      \"Count\": {\n        \"grass_pollen\": 2644,\n        \"tree_pollen\": 9051,\n        \"weed_pollen\": 9027\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"2023-08-24T22:49:05.101Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9639a735-a905-460d-9232-3eded9bf776b",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "history",
+                    "pollen",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "529d6a59-69a4-48b9-b8f1-5b0e9a0bf0cd",
+          "name": "Pollen forecast by latitude and longitude",
+          "request": {
+            "name": "Pollen forecast by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "forecast",
+                "pollen",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2b3ef11-a03f-4cc6-989e-2d2049823dfd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "pollen",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 6484.744063646415,\n  \"lng\": 7619.778109596977,\n  \"data\": [\n    {\n      \"time\": 8631,\n      \"lat\": 3481.3807397820005,\n      \"lng\": 9974.778034836154,\n      \"Count\": {\n        \"grass_pollen\": 3632,\n        \"tree_pollen\": 4789,\n        \"weed_pollen\": 3072\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"2000-10-19T10:34:13.171Z\"\n    },\n    {\n      \"time\": 2788,\n      \"lat\": 3117.506327905557,\n      \"lng\": 5970.177725322787,\n      \"Count\": {\n        \"grass_pollen\": 2644,\n        \"tree_pollen\": 9051,\n        \"weed_pollen\": 9027\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"2023-08-24T22:49:05.101Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dedad0e0-7245-4011-ab9c-e39842b7d286",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "pollen",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e9a8e83-8acb-4e69-99ac-121d15fb0bed",
+          "name": "120-hour pollen forecast by latitude and longitude",
+          "request": {
+            "name": "120-hour pollen forecast by latitude and longitude",
+            "description": {},
+            "url": {
+              "path": [
+                "forecast",
+                "v2",
+                "pollen",
+                "120hr",
+                "by-lat-lng"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd09f05c-b3c5-4e6a-aa5b-dc0580c366a5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "v2",
+                    "pollen",
+                    "120hr",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"lat\": 6484.744063646415,\n  \"lng\": 7619.778109596977,\n  \"data\": [\n    {\n      \"time\": 8631,\n      \"lat\": 3481.3807397820005,\n      \"lng\": 9974.778034836154,\n      \"Count\": {\n        \"grass_pollen\": 3632,\n        \"tree_pollen\": 4789,\n        \"weed_pollen\": 3072\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"2000-10-19T10:34:13.171Z\"\n    },\n    {\n      \"time\": 2788,\n      \"lat\": 3117.506327905557,\n      \"lng\": 5970.177725322787,\n      \"Count\": {\n        \"grass_pollen\": 2644,\n        \"tree_pollen\": 9051,\n        \"weed_pollen\": 9027\n      },\n      \"Risk\": {\n        \"grass_pollen\": \"string\",\n        \"tree_pollen\": \"string\",\n        \"weed_pollen\": \"string\"\n      },\n      \"updatedAt\": \"2023-08-24T22:49:05.101Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "278beb72-dc3a-423c-a9db-ba378b98e30f",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "v2",
+                    "pollen",
+                    "120hr",
+                    "by-lat-lng"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<float>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid API Key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ambeedata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9cf5a3ff-ac9b-4770-a59e-eaf12982a2b1",
+    "name": "Ambee Air Quality Pollen API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.\n\nContact Support:\n Name: Ambee Support",
+      "type": "text/plain"
+    }
+  }
+}
