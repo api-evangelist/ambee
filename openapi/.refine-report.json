@@ -1,12 +1,7 @@
 {
   "provider": "ambee",
   "sources": [
-    "ambee-air-quality-api-openapi.yml",
-    "ambee-fire-api-openapi.yml",
-    "ambee-ndvi-api-openapi.yml",
-    "ambee-pollen-api-openapi.yml",
-    "ambee-soil-api-openapi.yml",
-    "ambee-weather-api-openapi.yml"
+    "_original/ambee-openapi.yml"
   ],
   "outputs": [
     "ambee-air-quality-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ambee-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "ambee-air-quality-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ambee-fire-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ambee-ndvi-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ambee-pollen-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ambee-soil-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ambee-weather-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Ambee Air Quality API
   description: Ambee's environmental-intelligence REST API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide. All requests are authenticated with an API key sent in the `x-api-key` header and are scoped by latitude/longitude, postal code, city, country code, or place name. Responses are JSON envelopes containing a `message` and `data` payload.
@@ -130,19 +130,19 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   parameters:
-    lng:
-      name: lng
-      in: query
-      required: true
-      description: Longitude of the location.
-      schema:
-        type: number
-        format: float
     lat:
       name: lat
       in: query
       required: true
       description: Latitude of the location.
+      schema:
+        type: number
+        format: float
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
       schema:
         type: number
         format: float
@@ -154,6 +154,16 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
+    AirQualityResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        stations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirQualityReading'
     AirQualityReading:
       type: object
       properties:
@@ -187,16 +197,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    AirQualityResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: success
-        stations:
-          type: array
-          items:
-            $ref: '#/components/schemas/AirQualityReading'
     Error:
       type: object
       properties:
