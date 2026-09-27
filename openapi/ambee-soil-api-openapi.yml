@@ -64,31 +64,21 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  parameters:
-    lat:
-      name: lat
-      in: query
-      required: true
-      description: Latitude of the location.
-      schema:
-        type: number
-        format: float
-    lng:
-      name: lng
-      in: query
-      required: true
-      description: Longitude of the location.
-      schema:
-        type: number
-        format: float
-  responses:
-    Unauthorized:
-      description: Invalid or missing API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    SoilResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        lat:
+          type: number
+        lng:
+          type: number
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SoilData'
     SoilData:
       type: object
       properties:
@@ -108,20 +98,30 @@ components:
         message:
           type: string
           example: Invalid API Key
-    SoilResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: success
-        lat:
-          type: number
-        lng:
-          type: number
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SoilData'
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

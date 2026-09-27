@@ -117,21 +117,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   parameters:
-    place:
-      name: place
-      in: query
-      required: true
-      description: Place or location name to resolve.
-      schema:
-        type: string
-    lat:
-      name: lat
-      in: query
-      required: true
-      description: Latitude of the location.
-      schema:
-        type: number
-        format: float
     lng:
       name: lng
       in: query
@@ -140,6 +125,21 @@ components:
       schema:
         type: number
         format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
+    place:
+      name: place
+      in: query
+      required: true
+      description: Place or location name to resolve.
+      schema:
+        type: string
   schemas:
     Error:
       type: object
@@ -147,6 +147,22 @@ components:
         message:
           type: string
           example: Invalid API Key
+    PollenData:
+      type: object
+      properties:
+        time:
+          type: integer
+        lat:
+          type: number
+        lng:
+          type: number
+        Count:
+          $ref: '#/components/schemas/PollenCount'
+        Risk:
+          $ref: '#/components/schemas/PollenRisk'
+        updatedAt:
+          type: string
+          format: date-time
     PollenRisk:
       type: object
       properties:
@@ -165,22 +181,6 @@ components:
           type: integer
         weed_pollen:
           type: integer
-    PollenData:
-      type: object
-      properties:
-        time:
-          type: integer
-        lat:
-          type: number
-        lng:
-          type: number
-        Count:
-          $ref: '#/components/schemas/PollenCount'
-        Risk:
-          $ref: '#/components/schemas/PollenRisk'
-        updatedAt:
-          type: string
-          format: date-time
     PollenResponse:
       type: object
       properties:

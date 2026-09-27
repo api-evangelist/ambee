@@ -65,14 +65,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   parameters:
-    lat:
-      name: lat
-      in: query
-      required: true
-      description: Latitude of the location.
-      schema:
-        type: number
-        format: float
     lng:
       name: lng
       in: query
@@ -81,28 +73,15 @@ components:
       schema:
         type: number
         format: float
-  responses:
-    Unauthorized:
-      description: Invalid or missing API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
   schemas:
-    NdviResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: success
-        lat:
-          type: number
-        lng:
-          type: number
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/NdviData'
     Error:
       type: object
       properties:
@@ -118,6 +97,27 @@ components:
           type: number
         evi:
           type: number
+    NdviResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        lat:
+          type: number
+        lng:
+          type: number
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NdviData'
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
