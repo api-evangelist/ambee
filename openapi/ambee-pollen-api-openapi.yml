@@ -116,31 +116,28 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  parameters:
-    lng:
-      name: lng
-      in: query
-      required: true
-      description: Longitude of the location.
-      schema:
-        type: number
-        format: float
-    lat:
-      name: lat
-      in: query
-      required: true
-      description: Latitude of the location.
-      schema:
-        type: number
-        format: float
-    place:
-      name: place
-      in: query
-      required: true
-      description: Place or location name to resolve.
-      schema:
-        type: string
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    PollenResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        lat:
+          type: number
+        lng:
+          type: number
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PollenData'
     Error:
       type: object
       properties:
@@ -163,15 +160,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    PollenRisk:
-      type: object
-      properties:
-        grass_pollen:
-          type: string
-        tree_pollen:
-          type: string
-        weed_pollen:
-          type: string
     PollenCount:
       type: object
       properties:
@@ -181,27 +169,39 @@ components:
           type: integer
         weed_pollen:
           type: integer
-    PollenResponse:
+    PollenRisk:
       type: object
       properties:
-        message:
+        grass_pollen:
           type: string
-          example: success
-        lat:
-          type: number
-        lng:
-          type: number
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PollenData'
-  responses:
-    Unauthorized:
-      description: Invalid or missing API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+        tree_pollen:
+          type: string
+        weed_pollen:
+          type: string
+  parameters:
+    place:
+      name: place
+      in: query
+      required: true
+      description: Place or location name to resolve.
+      schema:
+        type: string
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

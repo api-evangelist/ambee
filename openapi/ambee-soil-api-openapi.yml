@@ -64,7 +64,33 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
+    SoilData:
+      type: object
+      properties:
+        time:
+          type: integer
+        soilTemperature:
+          type: number
+        soilMoisture:
+          type: number
+        depth:
+          type: string
+        unit:
+          type: string
     SoilResponse:
       type: object
       properties:
@@ -79,25 +105,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SoilData'
-    SoilData:
-      type: object
-      properties:
-        time:
-          type: integer
-        soilTemperature:
-          type: number
-        soilMoisture:
-          type: number
-        depth:
-          type: string
-        unit:
-          type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid API Key
   parameters:
     lng:
       name: lng
@@ -115,13 +122,6 @@ components:
       schema:
         type: number
         format: float
-  responses:
-    Unauthorized:
-      description: Invalid or missing API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -64,6 +64,43 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
+    NdviResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        lat:
+          type: number
+        lng:
+          type: number
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NdviData'
+    NdviData:
+      type: object
+      properties:
+        time:
+          type: integer
+        ndvi:
+          type: number
+        evi:
+          type: number
   parameters:
     lng:
       name: lng
@@ -81,43 +118,6 @@ components:
       schema:
         type: number
         format: float
-  schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid API Key
-    NdviData:
-      type: object
-      properties:
-        time:
-          type: integer
-        ndvi:
-          type: number
-        evi:
-          type: number
-    NdviResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: success
-        lat:
-          type: number
-        lng:
-          type: number
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/NdviData'
-  responses:
-    Unauthorized:
-      description: Invalid or missing API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

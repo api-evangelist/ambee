@@ -51,40 +51,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  parameters:
-    lng:
-      name: lng
-      in: query
-      required: true
-      description: Longitude of the location.
-      schema:
-        type: number
-        format: float
-    lat:
-      name: lat
-      in: query
-      required: true
-      description: Latitude of the location.
-      schema:
-        type: number
-        format: float
   schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid API Key
-    FireResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: success
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/FireEvent'
     FireEvent:
       type: object
       properties:
@@ -103,6 +70,22 @@ components:
           format: date-time
         satellite:
           type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
+    FireResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FireEvent'
   responses:
     Unauthorized:
       description: Invalid or missing API key.
@@ -110,6 +93,23 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
