@@ -64,6 +64,23 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
   responses:
     Unauthorized:
       description: Invalid or missing API key.
@@ -105,23 +122,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SoilData'
-  parameters:
-    lng:
-      name: lng
-      in: query
-      required: true
-      description: Longitude of the location.
-      schema:
-        type: number
-        format: float
-    lat:
-      name: lat
-      in: query
-      required: true
-      description: Latitude of the location.
-      schema:
-        type: number
-        format: float
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

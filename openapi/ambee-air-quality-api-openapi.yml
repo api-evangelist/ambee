@@ -130,22 +130,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    AirQualityResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: success
-        stations:
-          type: array
-          items:
-            $ref: '#/components/schemas/AirQualityReading'
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid API Key
     AirQualityReading:
       type: object
       properties:
@@ -179,13 +163,22 @@ components:
         updatedAt:
           type: string
           format: date-time
-  responses:
-    Unauthorized:
-      description: Invalid or missing API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    AirQualityResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        stations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirQualityReading'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
   parameters:
     lng:
       name: lng
@@ -203,6 +196,13 @@ components:
       schema:
         type: number
         format: float
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -89,6 +89,23 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
   responses:
     Unauthorized:
       description: Invalid or missing API key.
@@ -97,18 +114,6 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
-    WeatherResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: success
-        lat:
-          type: number
-        lng:
-          type: number
-        data:
-          $ref: '#/components/schemas/WeatherData'
     Error:
       type: object
       properties:
@@ -154,23 +159,18 @@ components:
           type: number
         precipType:
           type: string
-  parameters:
-    lng:
-      name: lng
-      in: query
-      required: true
-      description: Longitude of the location.
-      schema:
-        type: number
-        format: float
-    lat:
-      name: lat
-      in: query
-      required: true
-      description: Latitude of the location.
-      schema:
-        type: number
-        format: float
+    WeatherResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: success
+        lat:
+          type: number
+        lng:
+          type: number
+        data:
+          $ref: '#/components/schemas/WeatherData'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -116,6 +116,30 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  parameters:
+    lng:
+      name: lng
+      in: query
+      required: true
+      description: Longitude of the location.
+      schema:
+        type: number
+        format: float
+    lat:
+      name: lat
+      in: query
+      required: true
+      description: Latitude of the location.
+      schema:
+        type: number
+        format: float
+    place:
+      name: place
+      in: query
+      required: true
+      description: Place or location name to resolve.
+      schema:
+        type: string
   responses:
     Unauthorized:
       description: Invalid or missing API key.
@@ -138,12 +162,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PollenData'
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid API Key
     PollenData:
       type: object
       properties:
@@ -160,15 +178,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    PollenCount:
-      type: object
-      properties:
-        grass_pollen:
-          type: integer
-        tree_pollen:
-          type: integer
-        weed_pollen:
-          type: integer
     PollenRisk:
       type: object
       properties:
@@ -178,30 +187,21 @@ components:
           type: string
         weed_pollen:
           type: string
-  parameters:
-    place:
-      name: place
-      in: query
-      required: true
-      description: Place or location name to resolve.
-      schema:
-        type: string
-    lng:
-      name: lng
-      in: query
-      required: true
-      description: Longitude of the location.
-      schema:
-        type: number
-        format: float
-    lat:
-      name: lat
-      in: query
-      required: true
-      description: Latitude of the location.
-      schema:
-        type: number
-        format: float
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid API Key
+    PollenCount:
+      type: object
+      properties:
+        grass_pollen:
+          type: integer
+        tree_pollen:
+          type: integer
+        weed_pollen:
+          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
