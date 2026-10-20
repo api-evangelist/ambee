@@ -28,3 +28,33 @@
     builder: unknown (not in the directory record)
   status: not-a-workflow
   arazzo: null
+- slug: ambee-databricks-marketplace
+  label: Databricks Marketplace
+  partner: databricks
+  partner_name: Databricks Marketplace
+  category: data product listing
+  type: marketplace
+  marketplace: databricks-marketplace
+  channel: distribution
+  evidence: https://marketplace.databricks.com/provider/e8f52c61-ad23-4333-82f9-6f83cd446474
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Databricks Marketplace (marketplace.databricks.com/api/2.0/public-marketplace-providers + public-marketplace-listings)
+    spec_file: null
+    role: data-marketplace-seller
+    registered_name: Ambee
+    matched_domain: getambee.com
+    matched_by: domain
+    listings: 6
+    sample_listings:
+    - Ambee Global Air Quality Data - Historical | Present | Forecast
+    - Ambee Global Natural Disaster Data – Historical | Present | Climatology
+    - Ambee Global Pollen Data - Historical | Present | Forecast
+    - Ambee Global Weather Data - Historical | Present | Forecast
+    - Ambee Global Wildfire Data – Historical | Present | Risk Forecast | Climatology
+    signal_note: 'participation: the provider lists data products on this marketplace; counts are context'
+    detected_by: sweep-data-marketplaces.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
