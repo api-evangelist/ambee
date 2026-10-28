@@ -1,4 +1,4 @@
-# Ambee (ambee)
+# Ambee
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,155 +66,126 @@
 
 Ambee is an environmental-intelligence company that aggregates satellite, sensor, and ground-station data into a unified REST API. The Ambee API delivers hyperlocal air quality, pollen, weather, wildfire, soil, and NDVI/vegetation data worldwide via simple lat/lng, postal-code, and place lookups secured with an x-api-key header.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/ambee/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/ambee/refs/heads/main/apis.yml)
+**Areas:** Environmental Intelligence · Air Quality · Weather · Pollen · Geospatial
 
-## Tags
+## Ambee on APIs.io
 
-- Environmental Intelligence
-- Air Quality
-- Weather
-- Pollen
-- Geospatial
+Everything profiled for Ambee is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ambee/](https://apis.io/providers/ambee/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (6)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Ambee Air Quality API](https://apis.io/apis/ambee/ambee-air-quality-api/) — The Air Quality API from Ambee — 5 operation(s) for air quality.
+- [Ambee Fire API](https://apis.io/apis/ambee/ambee-fire-api/) — The Fire API from Ambee — 2 operation(s) for fire.
+- [Ambee NDVI API](https://apis.io/apis/ambee/ambee-ndvi-api/) — The NDVI API from Ambee — 2 operation(s) for ndvi.
+- [Ambee Pollen API](https://apis.io/apis/ambee/ambee-pollen-api/) — The Pollen API from Ambee — 5 operation(s) for pollen.
+- [Ambee Soil API](https://apis.io/apis/ambee/ambee-soil-api/) — The Soil API from Ambee — 2 operation(s) for soil.
+- [Ambee Weather API](https://apis.io/apis/ambee/ambee-weather-api/) — The Weather API from Ambee — 3 operation(s) for weather.
 
-## APIs
+### Published properties
 
-### Ambee Air Quality API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Hyperlocal air quality and AQI data (PM2.5, PM10, NO2, O3, SO2, CO) by latitude/longitude, city, country code, or postal code, plus historical and forecast lookups.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.getambee.com/api/air-quality](https://www.getambee.com/api/air-quality)
-- **Base URL:** `https://api.ambeedata.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Ambee Agentic Access](https://apis.io/agentic-access/ambee/ambee-agentic-access/)
 
-- Air Quality
-- AQI
-- Pollution
+#### Collections (7)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.ambeedata.com/apis/overview)
-- [API Reference](https://docs.ambeedata.com/apis/playground)
-- [OpenAPI](openapi/ambee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ambee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ambee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Ambee API](https://apis.io/collections/ambee/open-ambee/)
+- [Ambee Air Quality API](https://apis.io/collections/ambee/open-ambee-air-quality-api/)
+- [Ambee Air Quality Fire API](https://apis.io/collections/ambee/open-ambee-fire-api/)
+- [Ambee Air Quality NDVI API](https://apis.io/collections/ambee/open-ambee-ndvi-api/)
+- [Ambee Air Quality Pollen API](https://apis.io/collections/ambee/open-ambee-pollen-api/)
+- [Ambee Air Quality Soil API](https://apis.io/collections/ambee/open-ambee-soil-api/)
+- [Ambee Air Quality Weather API](https://apis.io/collections/ambee/open-ambee-weather-api/)
 
-### Ambee Pollen API
+#### Security (2)
 
-Hyperlocal pollen counts and risk levels for tree, grass, and weed pollen by latitude/longitude or place, with latest, historical, and 120-hour forecast endpoints.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://www.getambee.com/api/pollen](https://www.getambee.com/api/pollen)
-- **Base URL:** `https://api.ambeedata.com`
+- [Ambee Authentication](https://apis.io/security/ambee/ambee-authentication/)
+- [Ambee Domain Security](https://apis.io/security/ambee/ambee-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Pollen
-- Allergens
-- Health
+Published plans, tiers and prices.
 
-#### Properties
+- [Ambee Plans Pricing](https://apis.io/plans/ambee/ambee-plans-pricing/)
 
-- [Documentation](https://docs.ambeedata.com/apis/overview)
-- [OpenAPI](openapi/ambee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ambee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ambee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Ambee Weather API
+Published request limits.
 
-Hyperlocal micro-weather including temperature, humidity, wind, pressure, precipitation, UV index, and cloud cover by latitude/longitude, with latest, historical, and forecast endpoints.
+- [Ambee Rate Limits](https://apis.io/rate-limits/ambee/ambee-rate-limits/)
 
-- **Human URL:** [https://www.getambee.com/api/weather](https://www.getambee.com/api/weather)
-- **Base URL:** `https://api.ambeedata.com`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Weather
-- Micro Weather
-- Forecast
+- [Ambee Finops](https://apis.io/finops/ambee/ambee-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.ambeedata.com/apis/overview)
-- [OpenAPI](openapi/ambee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ambee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ambee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Ambee Fire API
-
-Active wildfire detections and fire-risk assessments by latitude/longitude or place, sourced from satellite hotspot feeds.
-
-- **Human URL:** [https://www.getambee.com/api/fire](https://www.getambee.com/api/fire)
-- **Base URL:** `https://api.ambeedata.com`
-
-#### Tags
-
-- Wildfire
-- Fire Risk
-- Hazards
-
-#### Properties
-
-- [Documentation](https://docs.ambeedata.com/apis/overview)
-- [OpenAPI](openapi/ambee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ambee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ambee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Ambee Soil API
-
-Soil temperature and soil moisture data at multiple depths by latitude/longitude or place, for agriculture, irrigation, and yield planning.
-
-- **Human URL:** [https://www.getambee.com/api/soil](https://www.getambee.com/api/soil)
-- **Base URL:** `https://api.ambeedata.com`
-
-#### Tags
-
-- Soil
-- Agriculture
-- Geospatial
-
-#### Properties
-
-- [Documentation](https://docs.ambeedata.com/apis/overview)
-- [OpenAPI](openapi/ambee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ambee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ambee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Ambee NDVI / Vegetation API
-
-Normalized Difference Vegetation Index (NDVI/EVI) values by latitude/longitude or place for monitoring vegetation density, agroforestry, and crop health over time.
-
-- **Human URL:** [https://www.getambee.com/api/ndvi-evi](https://www.getambee.com/api/ndvi-evi)
-- **Base URL:** `https://api.ambeedata.com`
-
-#### Tags
-
-- NDVI
-- Vegetation
-- Remote Sensing
-
-#### Properties
-
-- [Documentation](https://docs.ambeedata.com/apis/overview)
-- [OpenAPI](openapi/ambee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ambee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ambee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/ambeedata)
-- [LinkedIn](https://www.linkedin.com/company/getambee)
 - [Website](https://www.getambee.com)
 - [Documentation](https://docs.ambeedata.com)
-- [Plans](plans/ambee-plans-pricing.yml)
-- [Rate Limits](rate-limits/ambee-rate-limits.yml)
-- [Fin Ops](finops/ambee-finops.yml)
+- [Blog](https://www.getambee.com/blogs)
+- [GitHub](https://github.com/ambeedata)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 46.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 5.3 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ambee/](https://apis.io/providers/ambee/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ambee: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ambee/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
